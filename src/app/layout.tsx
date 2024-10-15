@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth focus:scroll-auto">
-      <body suppressHydrationWarning className={`${inter.variable} ${karla.variable} antialiased w-full`}>
+      <body suppressHydrationWarning className={`${inter.variable} ${karla.variable} antialiased bg-black w-full`}>
         <Topnav />
         <main className="relative w-full z-0 pt-[92px] lg:pt-24">{children}</main>
       </body>
