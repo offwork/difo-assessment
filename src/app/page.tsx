@@ -1,101 +1,55 @@
+import dynamic from "next/dynamic";
 import Image from "next/image";
+import IDO from "../assets/images/ido.png";
+// LAZY LOAD COMPONENTS
+const CurrencySlider = dynamic(() =>
+  import("@/components/ui/difo-currency-slider").then((m) => m.CurrencySlider)
+);
+const SaleDetails = dynamic(() =>
+  import("./_components/difo-sale-details").then((m) => m.SaleDetails)
+);
+const Token = dynamic(() =>
+  import("./_components/difo-token").then((m) => m.Token)
+);
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <div className="relative container min-w-full w-full my-10 lg:my-20">
+        <div className="relative w-full">
+          <div className="absolute z-0 w-full h-full top-0 rounded-2xl left-0 bg-gradient-to-tr from-black from-20% via-difo-azure via-50% to-black to-80%"></div>
+          <div className="relative z-10 w-full p-1">
+            <div className="relative z-0 grid grid-flow-row gap-10 bg-black rounded-2xl py-10 px-3 sm:py-20 sm:px-4 md:px-10 lg:grid-flow-col lg:px-10 lg:gap-5 xl:px-24 xl:gap-11 2xl:gap-10">
+              <div className="block my-auto order-last lg:order-first">
+                <h1 className="font-black tracking-wide font-[family-name:var(--font-inter)] text-base leading-tight sm:text-lg md:text-3xl lg:text-2xl xl:text-[31px] 2xl:text-[42px] 2xl:leading-[48px] 4xl:text-5xl 5xl:text-6xl">
+                  <span className="text-difo-azure">Difo Launchpad</span> is a new generation hybrid
+                  launch ramp that brings together the valuable features of both centralized{" "}
+                  <span className="text-difo-azure">IEO</span> platforms and decentralized{" "}
+                  <span className="text-difo-azure">IDO</span> platforms.
+                </h1>
+                <p className="font-bold text-difo-gray-chateau text-xs tracking-wide font-[family-name:var(--font-karla)] mt-6 sm:text-lg md:text-base lg:text-lg xl:text-xl">
+                  Gain early access to promising ideas of tomorrow with Difo Launchpad.
+                </p>
+              </div>
+              <Image
+                className="px-6 sm:px-10 md:px-32 lg:px-0"
+                src={IDO}
+                alt="Difo Launchpad"
+                priority
+              />
+              <div className="absolute bottom-0 w-full z-20 text-2xl font-black translate-y-1/2 sm:text-3xl md:pl-10 lg:pl-10 lg:text-5xl xl:pl-24">
+                <span className="bg-clip-text text-transparent bg-gradient-to-tr from-difo-hawks-blue from-4% via-difo-azure via-45% to-difo-hawks-blue to-99%">
+                  TRENDING
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+      
+      <CurrencySlider />
+      <Token />
+      <SaleDetails />
+    </>
   );
 }
